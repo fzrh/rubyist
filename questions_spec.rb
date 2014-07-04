@@ -33,12 +33,12 @@ describe 'the Friday test :)' do
     expect(n).to eq ['god', 'yeknom', 'tnahpele']
   end
 
-  # specify 'every_possible_pairing_of_students' do
-  #   n = every_possible_pairing_of_students(['Bob', 'Dave', 'Clive']) || []
-  #   sorted = n.map {|pair| pair.sort}.sort_by {|pair| [pair.first, pair.last] }
+  specify 'every_possible_pairing_of_students' do
+    n = every_possible_pairing_of_students(['Bob', 'Dave', 'Clive']) || []
+    sorted = n.map {|pair| pair.sort}.sort_by {|pair| [pair.first, pair.last] }
 
-  #   expect(sorted).to eq [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
-  # end
+    expect(sorted).to eq [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
+  end
 
   specify 'all_elements_except_first_3' do
     n = all_elements_except_first_3 [1, 2, 3, 4, 5, 6, 7]
@@ -151,15 +151,15 @@ describe 'the Friday test :)' do
     expect(n).to eq 4
   end
 
-  # specify 'format_date_nicely' do
-  #   n = format_date_nicely Time.new(2013, 10, 31)
-  #   expect(n).to eq '31/10/2013'
-  # end
+  specify 'format_date_nicely' do
+    n = format_date_nicely Time.new(2013, 10, 31)
+    expect(n).to eq '31/10/2013'
+  end
 
-  # specify 'get_domain_name_from_email_address' do
-  #   n = get_domain_name_from_email_address 'alex@makersacademy.com'
-  #   expect(n).to eq 'makersacademy'
-  # end
+  specify 'get_domain_name_from_email_address' do
+    n = get_domain_name_from_email_address 'alex@makersacademy.com'
+    expect(n).to eq 'makersacademy'
+  end
 
   # specify 'titleize_a_string' do
   #   n = titleize_a_string 'the lion the witch and the wardrobe'

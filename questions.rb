@@ -38,6 +38,7 @@ end
 # [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
 # make sure you don't have the same pairing twice, 
 def every_possible_pairing_of_students(array)
+  array.combination(2)
 end
 
 # discard the first 3 elements of an array, 
@@ -178,11 +179,13 @@ end
 # take a date and format it like dd/mm/yyyy, so Halloween 2013
 # becomes 31/10/2013
 def format_date_nicely(date)
+  "#{date.day}/#{date.month}/#{date.year}"
 end
 
 # get the domain name *without* the .com part, from an email address
 # so alex@makersacademy.com becomes makersacademy
 def get_domain_name_from_email_address(email)
+  email.split('.com')[0].split('@')[1]
 end
 
 # capitalize the first letter in each word of a string, 
@@ -208,6 +211,7 @@ end
 # should return true for a 3 dot range like 1...20, false for a 
 # normal 2 dot range
 def is_a_3_dot_range?(range)
+
 end
 
 # get the square root of a number
