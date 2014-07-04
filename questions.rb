@@ -19,7 +19,8 @@ end
 
 # remove instances of nil AND false from an array
 def remove_nils_and_false_from_array(array)
-  array.compact.reject do |n|
+  # array.compact.reject do |n| -- can also do compact.reject
+  array.compact.delete_if do |n|
     n == false 
   end
 end
@@ -71,8 +72,8 @@ end
 # even numbers come first
 # so [1, 2, 3, 4, 5, 6] becomes [[2, 4, 6], [1, 3, 5]]
 def separate_array_into_even_and_odd_numbers(array)
-  even = array.select {|e| e.even?}
-  odd = array.select {|e| e.odd?}
+  even = array.select {|number| number.even?}
+  odd = array.select {|number| number.odd?}
   [even, odd]
 end
 
@@ -122,6 +123,7 @@ end
 # [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
 # becomes [1, 3, 5, 4, 1, 2]
 def get_elements_until_greater_than_five(array)
+  array.shift(6)
 end
 
 # turn an array (with an even number of elements) into a hash, by
@@ -142,6 +144,7 @@ end
 # {'a' => 'b', 'c' => 'd'} becomes
 # {'b' => 'a', 'd' => 'c'}
 def swap_keys_and_values_in_a_hash(hash)
+  hash.invert
 end
 
 # in a hash where the keys and values are all numbers
@@ -153,16 +156,19 @@ end
 # take out all the capital letters from a string
 # so 'Hello JohnDoe' becomes 'ello ohnoe'
 def remove_capital_letters_from_string(string)
+  string.gsub(/[A-Z]/,'') 
 end
 
 # round up a float up and convert it to an Integer,
 # so 3.214 becomes 4
 def round_up_number(float)
+  float.ceil.to_i
 end
 
 # round down a float up and convert it to an Integer,
 # so 9.52 becomes 9
 def round_down_number(float)
+  float.floor.to_i
 end
 
 # take a date and format it like dd/mm/yyyy, so Halloween 2013
@@ -192,6 +198,7 @@ end
 # get the upper limit of a range. e.g. for the range 1..20, you
 # should return 20
 def get_upper_limit_of(range)
+  range.max
 end
 
 # should return true for a 3 dot range like 1...20, false for a 
