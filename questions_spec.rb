@@ -169,26 +169,26 @@ describe 'the Friday test :)' do
     expect(n).to eq 'The Lion the Witch and the Wardrobe'
   end
 
-  # specify 'check_a_string_for_special_characters' do
-  #   a = check_a_string_for_special_characters 'ABCdef123'
-  #   b = check_a_string_for_special_characters 'ABC@def123!'
+  specify 'check_a_string_for_special_characters' do
+    a = check_a_string_for_special_characters 'ABCdef123'
+    b = check_a_string_for_special_characters 'ABC@def123!'
 
-  #   expect(a).to be_false
-  #   expect(b).to be_true
-  # end
+    expect(a).to be false
+    expect(b).to be true
+  end
 
   specify 'get_upper_limit_of' do
     n = get_upper_limit_of 1..20
     expect(n).to eq 20
   end
 
-  # specify 'is_a_3_dot_range?' do
-  #   a = is_a_3_dot_range? 1..20
-  #   b = is_a_3_dot_range? 1...20
+  specify 'is_a_3_dot_range?' do
+    a = is_a_3_dot_range? 1..20
+    b = is_a_3_dot_range? 1...20
 
-  #   expect(a).to be_false
-  #   expect(b).to be_true
-  # end
+    expect(a).to be false
+    expect(b).to be true
+  end
 
   specify 'square_root_of' do
     a = square_root_of 9
@@ -204,25 +204,25 @@ describe 'the Friday test :)' do
 
 # --- tougher ones ---
 
-  # specify 'call_method_from_string' do
-  #   expect { call_method_from_string('foobar') }.to raise_error(NameError)
-  # end
+  specify 'call_method_from_string' do
+    expect { call_method_from_string('foobar') }.to raise_error(NameError)
+  end
 
-  # specify 'is_a_2014_bank_holiday?' do
-  #   a = is_a_2014_bank_holiday?(Time.new(2014, 8, 25))
-  #   b = is_a_2014_bank_holiday?(Time.new(2014, 8, 26))
+  specify 'is_a_2014_bank_holiday?' do
+    a = is_a_2014_bank_holiday?(Time.new(2014, 8, 25))
+    b = is_a_2014_bank_holiday?(Time.new(2014, 8, 26))
 
-  #   expect(a).to be true
-  #   expect(b).to be false
-  # end
+    expect(a).to be true
+    expect(b).to be false
+  end
 
-  # specify 'your_birthday_is_on_a_friday_in_the_year' do
-  #   n = your_birthday_is_on_a_friday_in_the_year(Time.new(2013, 1, 1))
-  #   expect(n).to eq 2016
-  # end
+  specify 'your_birthday_is_on_a_friday_in_the_year' do
+    n = your_birthday_is_on_a_friday_in_the_year(Time.new(2013, 1, 1))
+    expect(n).to eq 2016
+  end
 
-  # specify 'count_words_of_each_length_in_a_file' do
-  #   n = count_words_of_each_length_in_a_file('lorem.txt') || []
-  #   expect(Hash[n.sort]).to eq({1=>1, 2=>5, 3=>7, 4=>12, 5=>14, 6=>4, 7=>8, 8=>6, 9=>6, 10=>2, 11=>2, 12=>3}) 
-  # end
+  specify 'count_words_of_each_length_in_a_file' do
+    n = count_words_of_each_length_in_a_file('lorem.txt') || []
+    expect(Hash[n.sort]).to eq({1=>1, 2=>5, 3=>7, 4=>12, 5=>14, 6=>4, 7=>8, 8=>6, 9=>6, 10=>2, 11=>2, 12=>3}) 
+  end
 end

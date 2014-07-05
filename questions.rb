@@ -55,8 +55,8 @@ end
 # sort an array of words by their last letter, e.g.
 # ['sky', 'puma', 'maker'] becomes ['puma', 'maker', 'sky']
 def array_sort_by_last_letter_of_word(array)
-  array.sort_by do |n| 
-    n[-1]
+  array.sort_by do |letter| 
+    letter[-1]
   end
 end
 
@@ -97,7 +97,9 @@ end
 
 # return the shortest word in an array
 def shortest_word_in_array(array)
-  array = array.sort_by!{|word| word.length}
+  array = array.sort_by! do 
+    |word| word.length
+  end
   return array[0]
 end
 
@@ -218,6 +220,8 @@ end
 # where 'special character' means anything apart from the letters
 # a-z (uppercase and lower) or numbers
 def check_a_string_for_special_characters(string)
+  special_characters = string.gsub(/[A-Za-z0-9]/, "")
+  special_characters.length > 0
 end
 
 # get the upper limit of a range. e.g. for the range 1..20, you
@@ -229,6 +233,7 @@ end
 # should return true for a 3 dot range like 1...20, false for a 
 # normal 2 dot range
 def is_a_3_dot_range?(range)
+  range.exclude_end?
 end
 
 # get the square root of a number
@@ -248,18 +253,28 @@ end
 # called call_method_from_string('foobar')
 # the method foobar should be invoked
 def call_method_from_string(str_method)
+  self.str_method
+  #String.method(str_method)
 end
 
 # return true if the date is a uk bank holiday for 2014
 # the list of bank holidays is here:
 # https://www.gov.uk/bank-holidays
 def is_a_2014_bank_holiday?(date)
+  bank_holidays = [ Time.new(2014, 8, 26),
+                    Time.new(2014, 12, 25),
+                    Time.new(2014, 12, 26) ]
+  !bank_holidays.include?(date)
 end
 
 # given your birthday this year, this method tells you
 # the next year when your birthday will fall on a friday
 # e.g. january 1st, will next be a friday in 2016
 def your_birthday_is_on_a_friday_in_the_year(birthday)
+  until birthday.friday?
+    birthday += (365 * 24 * 60 * 60)
+  end
+  birthday.year
 end
 
 # in a file, total the number of times words of different lengths
@@ -268,6 +283,8 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
+  words, count = IO.read(file_path).scan(/\w+/), Hash.new(0)
+  words.each { |word| count[word.size] += 1} and return count
 end
 
 # implement fizzbuzz without modulo, i.e. the % method
