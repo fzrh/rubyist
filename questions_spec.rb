@@ -63,6 +63,7 @@ describe 'the Friday test :)' do
     expect(a).to eq 'ban'
     expect(b).to eq 'app'
     expect(c).to eq 'tama'
+    # added a third word to make sure the method is correct.
   end
 
   specify 'make_numbers_negative' do
@@ -133,10 +134,10 @@ describe 'the Friday test :)' do
     expect(n).to eq({'b' => 'a', 'd' => 'c'})
   end
 
-  # specify 'add_together_keys_and_values' do
-  #   n = add_together_keys_and_values({1 => 1, 2 => 2})
-  #   expect(n).to eq 6
-  # end
+  specify 'add_together_keys_and_values' do
+    n = add_together_keys_and_values({1 => 1, 2 => 2})
+    expect(n).to eq 6
+  end
 
   specify 'remove_capital_letters_from_string' do
     n = remove_capital_letters_from_string 'Hello JohnDoe'
@@ -163,10 +164,10 @@ describe 'the Friday test :)' do
     expect(n).to eq 'makersacademy'
   end
 
-  # specify 'titleize_a_string' do
-  #   n = titleize_a_string 'the lion the witch and the wardrobe'
-  #   expect(n).to eq 'The Lion the Witch and the Wardrobe'
-  # end
+  specify 'titleize_a_string' do
+    n = titleize_a_string 'the lion the witch and the wardrobe'
+    expect(n).to eq 'The Lion the Witch and the Wardrobe'
+  end
 
   # specify 'check_a_string_for_special_characters' do
   #   a = check_a_string_for_special_characters 'ABCdef123'
@@ -196,10 +197,10 @@ describe 'the Friday test :)' do
     expect(b).to eq 1.7320508075688772
   end
 
-  # specify 'word_count_a_file' do
-  #   n = word_count_a_file 'lorem.txt'
-  #   expect(n).to eq 70
-  # end
+  specify 'word_count_a_file' do
+    n = word_count_a_file 'lorem.txt'
+    expect(n).to eq 70
+  end
 
 # --- tougher ones ---
 
@@ -211,8 +212,8 @@ describe 'the Friday test :)' do
   #   a = is_a_2014_bank_holiday?(Time.new(2014, 8, 25))
   #   b = is_a_2014_bank_holiday?(Time.new(2014, 8, 26))
 
-  #   expect(a).to be_true
-  #   expect(b).to be_false
+  #   expect(a).to be true
+  #   expect(b).to be false
   # end
 
   # specify 'your_birthday_is_on_a_friday_in_the_year' do

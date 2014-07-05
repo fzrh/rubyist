@@ -169,6 +169,7 @@ end
 # add all the keys and all the values together, e.g.
 # {1 => 1, 2 => 2} becomes 6
 def add_together_keys_and_values(hash)
+  hash.flatten.inject(:+)
 end
 
 # take out all the capital letters from a string
@@ -207,6 +208,10 @@ end
 # 'the lion the witch and the wardrobe' becomes
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
+  words = string.capitalize.split
+  words.each{|word| word.capitalize! if word.length > 3}.join(' ')
+
+
 end
 
 # return true if a string contains any special characters
@@ -224,7 +229,6 @@ end
 # should return true for a 3 dot range like 1...20, false for a 
 # normal 2 dot range
 def is_a_3_dot_range?(range)
-
 end
 
 # get the square root of a number
@@ -234,6 +238,8 @@ end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
+  file = File.open(file_path, 'r')
+  file.read.split(' ').length
 end
 
 # --- tougher ones ---
