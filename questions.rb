@@ -291,6 +291,25 @@ end
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
+
+  class Fixnum
+    def multiple_of?(number)
+      return true if self == number
+      return false if number.even? && self.odd?
+      return false if self < number
+      (self - number).multiple_of?(number)
+    end
+  end
+
+  def fizzbuzz(number)
+    return 'FizzBuzz' if number.multiple_of?(15)
+    return 'Buzz' if number.multiple_of?(5)
+    return 'Fizz' if number.multiple_of?(3)
+    "#{number}"
+  end
+
+  1.upto(100).map { |number| fizzbuzz(number) }
+
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
