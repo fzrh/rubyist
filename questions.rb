@@ -1,14 +1,14 @@
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
-  array.select do |n|
-    n.start_with?('a')
+  array.select do |word|
+    word.start_with?('a')
   end
 end
 
 # keep only the elements that start with a vowel
 def select_elements_starting_with_vowel(array)
-  array.select do |n|
-    n.start_with?('a', 'e','i', 'o', 'u')
+  array.select do |word|
+    word.start_with?('a', 'e','i', 'o', 'u')
   end
 end
 
@@ -19,17 +19,17 @@ end
 
 # remove instances of nil AND false from an array
 def remove_nils_and_false_from_array(array)
-  # array.compact.reject do |n| -- can also do compact.reject
-  array.compact.delete_if do |n|
-    n == false 
+  # array.compact.reject do |element| -- can also do compact.reject
+  array.compact.delete_if do |word|
+    word == false 
   end
 end
 
 # don't reverse the array, but reverse every word inside it. e.g.
 # ['dog', 'monkey'] becomes ['god', 'yeknom']
 def reverse_every_element_in_array(array)
-  array.map do |n|
-    n.reverse
+  array.map do |word|
+    word.reverse
   end
 end
 
@@ -291,25 +291,6 @@ end
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
-
-  class Fixnum
-    def multiple_of?(number)
-      return true if self == number
-      return false if number.even? && self.odd?
-      return false if self < number
-      (self - number).multiple_of?(number)
-    end
-  end
-
-  def fizzbuzz(number)
-    return 'FizzBuzz' if number.multiple_of?(15)
-    return 'Buzz' if number.multiple_of?(5)
-    return 'Fizz' if number.multiple_of?(3)
-    "#{number}"
-  end
-
-  1.upto(100).map { |number| fizzbuzz(number) }
-
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
